@@ -6,30 +6,14 @@ using System.Threading.Tasks;
 
 namespace api.PersistenceLayer.Interfaces
 {
-    interface IPersistenceLayerService
+    public interface IPersistenceLayerService
     {
-        IEnumerable<File> GetAllFiles();
+        IEnumerable<Person> GetAllPerson();
 
-        IEnumerable<FileStore> GetFileStores();
+        Person GetPersonByID(Guid personId);
 
-        IEnumerable<Job> GetAllJobs();
+        void AddPerson(Person person);
 
-        File GetFileByID(Guid fileId);
-
-        FileStore GetFileStoreById(Guid filestoreId);
-
-        Job GetJobById(Guid jobId);
-
-        bool AddFile(File file);
-
-        bool AddFileStore(FileStore fileStore);
-
-        bool AddJob(Job job);
-
-        bool RemoveFile(Guid fileId);
-
-        bool RemoveFilestore(Guid filestoreId);
-
-        bool RemoveJob(Guid jobId);
+        void RemovePerson(Person person);
     }
 }
