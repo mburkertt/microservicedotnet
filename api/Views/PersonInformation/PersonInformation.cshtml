@@ -1,9 +1,16 @@
-﻿@{
-    ViewBag.Title = "Persons in DataBase";
-}
+﻿    <h2>Persons in Database:</h2>
 
-<h2>Persons:</h2>
-
-<ul>
-        <li>@ViewBag.Message</li>
-</ul>
+    <table style="width:100%">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Id</th>
+        </tr>
+        @foreach (api.Model.Person item in ViewData["PersonData"] as IEnumerable<api.Model.Person>)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.PersonId</td>
+            </tr>
+        }

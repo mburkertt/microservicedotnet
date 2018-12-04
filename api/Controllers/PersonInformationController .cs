@@ -21,9 +21,7 @@ namespace api.Controllers
 
         public ActionResult PersonInformation()
         {
-            var jsonString = JsonConvert.SerializeObject(_persistenceLayerService.GetAllPerson());
-            ViewBag.Message = jsonString;
-
+            ViewData["PersonData"] = _persistenceLayerService.GetAllPerson();
             return View();
         }
 
