@@ -45,33 +45,40 @@
 <body>
     @using (Html.BeginForm("PersonForm", "Person", FormMethod.Post))
     {
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <th colspan="2" align="center">Person Details</th>
-        </tr>
-        <tr>
-            <td>PersonId: </td>
-            <td>
-                @Html.TextBoxFor(m => m.PersonId)
-            </td>
-        </tr>
-        <tr>
-            <td>Name: </td>
-            <td>
-                @Html.TextBoxFor(m => m.FirstName)
-            </td>
-        </tr>
-        <tr>
-            <td>Name: </td>
-            <td>
-                @Html.TextBoxFor(m => m.LastName)
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="Submit" /></td>
-        </tr>
-    </table>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2" align="center">Person Details</th>
+            </tr>
+            <tr>
+                <td>PersonId: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.PersonId)
+                </td>
+            </tr>
+            <tr>
+                <td>Name: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <td>Name: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.LastName)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    }
+
+    @if (!string.IsNullOrEmpty(Convert.ToString(ViewData["exception"])))  // this does not work
+    {
+        <div style="background-color:lightcoral" align="center">
+            @String.Concat(ViewData["exception"].ToString());
+        </div>
     }
 </body>
 </html>
